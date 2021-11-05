@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useContext } from "react"
+import { productContext } from "../contexts/productContext"
 
-const Product = props => {
-	return (
-		<div className="product">
-			<img src={props.product.image} alt={`${props.product.title} book`} />
+const Product = (props) => {
+  const { products, addItem } = useContext(productContext)
 
-			<h1 className="title">{props.product.title}</h1>
+  return (
+    <div className="product">
+      <img src={product.image} alt={`${props.product.title} book`} />
 
-			<p className="price">${props.product.price}</p>
+      <h1 className="title">{props.product.title}</h1>
 
-			<button onClick={() => props.addItem(props.product)}>
-				Add to cart
-			</button>
-		</div>
-	);
-};
+      <p className="price">${props.product.price}</p>
 
-export default Product;
+      <button onClick={() => props.addItem(product)}>Add to cart</button>
+    </div>
+  )
+}
+
+export default Product
